@@ -1,0 +1,23 @@
+<% if(errors.length) { %>
+  <div class="row">
+    <div class="col my-3">
+      <% errors.forEach(erro=> { %>
+        <div class="alert alert-danger">
+          <%= erro %>
+        </div>
+        <% }) %>
+    </div>
+  </div>
+  <% } %>
+
+    <% if(success.length) { %>
+      <div class="row">
+        <div class="col my-3">
+          <% errors.forEach(erro=> { %>
+            <div class="alert alert-success">
+              <%= erro %>
+            </div>
+            <% }) %>
+        </div>
+      </div>
+      <% } %>
