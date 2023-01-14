@@ -10,27 +10,32 @@
 
           <%- include('includes/messages') %>
 
-            <form action="/contato/register" method="POST">
-              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-              <div class=" mb-3">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" value="<%= contato.nome %>">
-              </div>
-              <div class=" mb-3">
-                <label for="sobrenome" class="form-label">Sobrenome</label>
-                <input type="text" class="form-control" id="sobrenome" name="sobrenome"
-                  value="<%= contato.sobrenome %>">
-              </div>
-              <div class=" mb-3">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="<%= contato.email %>">
-              </div>
-              <div class=" mb-3">
-                <label for="telefone" class="form-label">Telefone</label>
-                <input type="tel" class="form-control" id="telefone" name="telefone" value="<%= contato.telefone %>">
-              </div>
-              <button type="submit" class="btn btn-primary">Salvar</button>
-            </form>
+            <% if(contato._id) { %>
+              <form action="/contato/edit/<%= contato._id %>" method="POST">
+                <% }else{ %>
+                  <form action="/contato/register" method="POST">
+                    <% } %>
+                      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                      <div class=" mb-3">
+                        <label for="nome" class="form-label">Nome</label>
+                        <input type="text" class="form-control" id="nome" name="nome" value="<%= contato.nome %>">
+                      </div>
+                      <div class=" mb-3">
+                        <label for="sobrenome" class="form-label">Sobrenome</label>
+                        <input type="text" class="form-control" id="sobrenome" name="sobrenome"
+                          value="<%= contato.sobrenome %>">
+                      </div>
+                      <div class=" mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="<%= contato.email %>">
+                      </div>
+                      <div class=" mb-3">
+                        <label for="telefone" class="form-label">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone" name="telefone"
+                          value="<%= contato.telefone %>">
+                      </div>
+                      <button type="submit" class="btn btn-primary">Salvar</button>
+                  </form>
 
         </div>
         <div class="col-lg-2"></div>
